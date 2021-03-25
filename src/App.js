@@ -3,11 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import store from './store';
-import PodcastsPage from './components/PodcastsPage';
-import SearchRedirector from './components/SearchRedirector';
-import PodcastPage from './components/PodcastPage';
+import LandingPage from './components/LandingPage';
 import NotFoundPage from './components/NotFoundPage';
-import Player from './containers/Player';
 
 
 class App extends React.Component {
@@ -17,12 +14,9 @@ class App extends React.Component {
             <Provider store={store}>
                 <BrowserRouter basename={process.env.PUBLIC_URL}>
                     <Switch>
-                        <Route exact path={process.env.PUBLIC_URL + '/'} component={PodcastsPage} />
-                        <Route exact path={process.env.PUBLIC_URL + '/search/:id'} component={SearchRedirector} />
-                        <Route exact path={process.env.PUBLIC_URL + '/podcasts/:id'} component={PodcastPage} />
+                        <Route exact path={process.env.PUBLIC_URL + '/'} component={LandingPage} />
                         <Route component={NotFoundPage} />
                     </Switch>
-                    <Player />
                 </BrowserRouter>
             </Provider>
         )
