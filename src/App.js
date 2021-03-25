@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import store from './store';
-import LandingPage from './components/LandingPage';
+import CasesPage from './components/CasesPage';
 import NotFoundPage from './components/NotFoundPage';
 
 
@@ -14,7 +14,7 @@ class App extends React.Component {
             <Provider store={store}>
                 <BrowserRouter basename={process.env.PUBLIC_URL}>
                     <Switch>
-                        <Route exact path={process.env.PUBLIC_URL + '/'} component={LandingPage} />
+                        <Route exact path={process.env.PUBLIC_URL + '/'} component={CasesPage} />
                         <Route component={NotFoundPage} />
                     </Switch>
                 </BrowserRouter>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 class Layout extends React.Component {
@@ -7,7 +8,12 @@ class Layout extends React.Component {
         return (
             <div>
                 <div className='container mt-3 mb-5'>
-                    <h1>TODO: Update layout</h1>
+                    <div className='text-center mt-3'>
+                        <h1>Covid in Ireland</h1>
+                        <Link to='/' className='btn btn--template primary--bg mr-3'>Cases</Link>
+                        <Link to='/swabs' className='btn btn--template primary--bg mr-3'>Swabs</Link>
+                        <Link to='/vaccines' className='btn btn--template primary--bg'>Vaccines</Link>
+                    </div>
                     {this.props.children}
                 </div>
             </div>
