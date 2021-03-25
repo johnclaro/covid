@@ -26,7 +26,7 @@ instance.interceptors.response.use((response) => {
     if (error.response.status === 401 && !request._retry) {
         request._retry = true;
         const body = {
-            username: 'guestuser',
+            username: 'guestusername',
             password: 'guestpassword'
         }
         const response = await instance.post('/accounts/login', body);
