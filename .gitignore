@@ -105,3 +105,5 @@ dist
 
 # local
 .DS_Store
+
+.vercel
