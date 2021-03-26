@@ -3,6 +3,7 @@ import React from 'react';
 import Layout from './Layout';
 import Cases from '../containers/Cases';
 import Deaths from '../containers/Deaths';
+import Counties from '../containers/Counties';
 
 
 class CasesPage extends React.Component {
@@ -12,6 +13,7 @@ class CasesPage extends React.Component {
             <Layout>
                 <Cases />
                 <Deaths />
+                <Counties />
             </Layout>
         )
     }
