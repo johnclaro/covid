@@ -76,7 +76,7 @@ class Cases extends React.Component {
                         1608768000000: 'Level 5+',
                     }
                     for (var lockdown in lockdowns) {
-                        if (lockdown == this.x) {
+                        if (lockdown === this.x) {
                             lockdownStatus += `<br> <b>Lockdown:</b> ${lockdowns[lockdown]}</b>`
                         }
                     }
