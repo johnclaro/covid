@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Layout from './Layout';
+import Cases from '../containers/Cases';
+import Deaths from '../containers/Deaths';
 
 
 class CasesPage extends React.Component {
@@ -8,7 +10,8 @@ class CasesPage extends React.Component {
     render() {
         return (
             <Layout>
-                <h1>Cases</h1>
+                <Cases />
+                <Deaths />
             </Layout>
         )
     }
