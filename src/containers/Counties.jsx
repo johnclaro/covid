@@ -45,7 +45,6 @@ class Counties extends React.Component {
         axios.post('covid/hse/counties')
         .then(response => {
             const { data } = response;
-            console.log(data);
             const series = {
                 name: 'Cases',
                 data: data,
