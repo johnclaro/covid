@@ -4,6 +4,8 @@ import Layout from './Layout';
 import Cases from '../containers/Cases';
 import Deaths from '../containers/Deaths';
 import Counties from '../containers/Counties';
+import Ages from '../containers/Ages';
+import Genders from '../containers/Genders';
 
 
 class CasesPage extends React.Component {
@@ -14,6 +16,14 @@ class CasesPage extends React.Component {
                 <Cases />
                 <Deaths />
                 <Counties />
+                <div className='row'>
+                    <div className='col-lg-6'>
+                        <Ages />
+                    </div>
+                    <div className='col-lg-6'>
+                        <Genders />
+                    </div>
+                </div>
             </Layout>
         )
     }
