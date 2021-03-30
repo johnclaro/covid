@@ -20,7 +20,7 @@ class Swabs extends React.Component {
                 }
             },
             title: {
-                text: 'Reported positive swabs and confirmed cases'
+                text: `Reported positive swabs and confirmed cases ${this.props.days ? `over ${this.props.days} days`: 'daily'}`
             },
             credits: {
                 enabled: false
