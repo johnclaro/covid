@@ -47,6 +47,7 @@ class Cases extends React.Component {
                 title: {
                     text: 'Date'
                 },
+                plotBands: this.props.plotBands
             },
             yAxis: {
                 startOnTick: true,

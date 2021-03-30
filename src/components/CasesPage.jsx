@@ -7,6 +7,7 @@ import Deaths from '../containers/Deaths';
 import Counties from '../containers/Counties';
 import Ages from '../containers/Ages';
 import Genders from '../containers/Genders';
+import { PLOT_BANDS } from '../constants';
 
 
 class CasesPage extends React.Component {
@@ -15,8 +16,8 @@ class CasesPage extends React.Component {
         return (
             <Layout>
                 <Case />
-                <Cases />
-                <Deaths />
+                <Cases plotBands={PLOT_BANDS} />
+                <Deaths plotBands={PLOT_BANDS} />
                 <Counties />
                 <div className='row'>
                     <div className='col-lg-6'>
