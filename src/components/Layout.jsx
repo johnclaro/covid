@@ -18,10 +18,10 @@ class Layout extends React.Component {
                 <div className='container mt-3 mb-5'>
                     <div className='text-center mt-3'>
                         <h1>Covid in Ireland</h1>
-                        {this.state.links.map((map, index) =>
-                            <Link key={index} to={map.url} className={`btn btn--template ${pathname === map.url ? 'primary' : 'light'}--bg mr-3`}>
-                                Cases
-                                {pathname === map.url ? null : ' ->'}
+                        {this.state.links.map((link, index) =>
+                            <Link key={index} to={link.url} className={`btn btn--template ${pathname === link.url ? 'primary' : 'light'}--bg mr-3`}>
+                                {link.title}
+                                {pathname === link.url ? null : ' ->'}
                             </Link>
                         )}
                     </div>
