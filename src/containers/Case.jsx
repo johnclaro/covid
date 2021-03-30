@@ -13,10 +13,7 @@ class Case extends React.Component {
     componentDidMount() {
         axios.post('covid/hse')
         .then(response => {
-            this.setState({
-                first: response.data.first,
-                last: response.data.last,
-            })
+            this.setState(response.data)
         }, error => {
             console.log(error);
         })
@@ -51,7 +48,7 @@ class Case extends React.Component {
                 ): null}
                 {last ? (
                     <div className='col-lg-6'>
-                        <small className='text-muted'>{last.date}</small>
+                        <small className='text-muted'>{last.date} to {first.date}</small>
                         <div className='card'>
                             <div className='card-body'>
                                 <div className='row text-lg-center'>
