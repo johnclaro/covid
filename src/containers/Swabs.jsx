@@ -96,25 +96,26 @@ class Swabs extends React.Component {
     componentDidMount() {
         axios.post('covid/hse/swabs', this.props)
         .then(response => {
-            const positives = {
-                data: response.data.positives,
+            const { positives, cases } = response.data;
+            const positiveSeries = {
+                data: positives,
                 lineColor: '#8085E9',
                 color: '#8085E9',
                 fillOpacity: 1,
                 name: 'Positives',
                 threshold: null,
             }
-            this.internalChart.addSeries(positives)
+            this.internalChart.addSeries(positiveSeries)
 
-            const cases = {
-                data: response.data.cases,
+            const caseSeries = {
+                data: cases,
                 lineColor: '#5DC2C2',
                 color: '#5DC2C2',
                 fillOpacity: 1,
                 name: 'Cases',
                 threshold: null,
             }
-            this.internalChart.addSeries(cases)
+            this.internalChart.addSeries(caseSeries)
         }, error => {
             console.log(error);
         })

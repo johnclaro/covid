@@ -6,69 +6,70 @@ import axios from '../axios';
 class Swab extends React.Component {
     
     state = {
-        first: null,
-        last: null,
+        data: null
     }
 
     componentDidMount() {
-        axios.post('covid/hse/swab')
+        axios.post('covid/hse/swabs/latest')
         .then(response => {
-            this.setState(response.data)
+            this.setState({data: response.data})
         }, error => {
             console.log(error);
         })
     }
 
     render() {
-        const { first, last } = this.state;
+        const { data } = this.state;
         return (
-            <div className='row mt-3 mb-3'>
-                {first ? (
-                    <div className='col-lg-6'>
-                        <small className='text-muted'>{first.date}</small>
-                        <div className='card'>
-                            <div className='card-body'>
-                                <div className='row text-lg-center'>
-                                    <div className='col-lg-6'>
-                                        Positive Swabs
-                                        <h3>
-                                            {first.confirmedcovidcases}
-                                        </h3>
+            <div>
+                {data ? (
+                    <div className='row mt-3 mb-3'>
+                        <div className='col-lg-6'>
+                            <small className='text-muted'>{data.latest_date}</small>
+                            <div className='card'>
+                                <div className='card-body'>
+                                    <div className='row text-lg-center'>
+                                        <div className='col-lg-6'>
+                                            Positive Swabs
+                                            <h3>
+                                                {data.pos1}
+                                            </h3>
+                                        </div>
+                                        <div className='col-lg-6'>
+                                            Positivity Rate
+                                            <h3>
+                                                {data.posr1}%
+                                            </h3>
+                                        </div>
                                     </div>
-                                    <div className='col-lg-6'>
-                                        Positivity Rate
-                                        <h3>
-                                            {first.confirmedcoviddeaths}%
-                                        </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-lg-6'>
+                            <small className='text-muted'>{data.oldest_date} to {data.latest_date}</small>
+                            <div className='card'>
+                                <div className='card-body'>
+                                    <div className='row text-lg-center'>
+                                        <div className='col-lg-6'>
+                                            Positive Swabs
+                                            <h3>
+                                                {data.positive}
+                                            </h3>
+                                        </div>
+                                        <div className='col-lg-6'>
+                                            Positivity Rate
+                                            <h3>
+                                                {data.prate}%
+                                            </h3>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                ): null}
-                {last ? (
-                    <div className='col-lg-6'>
-                        <small className='text-muted'>{last.date} to {first.date}</small>
-                        <div className='card'>
-                            <div className='card-body'>
-                                <div className='row text-lg-center'>
-                                    <div className='col-lg-6'>
-                                        Positive Swabs
-                                        <h3>
-                                            {last.confirmedcovidcases}
-                                        </h3>
-                                    </div>
-                                    <div className='col-lg-6'>
-                                        Positivity Rate
-                                        <h3>
-                                            {last.confirmedcoviddeaths}%
-                                        </h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ): null}
+                ): (
+                    <div>Loading...</div>
+                )}
             </div>
         )
     }
