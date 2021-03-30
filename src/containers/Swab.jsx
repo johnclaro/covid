@@ -46,7 +46,7 @@ class Swab extends React.Component {
                             </div>
                         </div>
                         <div className='col-lg-6'>
-                            <small className='text-muted'>{data.oldest_date} to {data.latest_date}</small>
+                            <small className='text-muted'>{data.oldest_date} - {data.latest_date}</small>
                             <div className='card'>
                                 <div className='card-body'>
                                     <div className='row text-lg-center'>
