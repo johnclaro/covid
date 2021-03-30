@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 
 import store from './store';
 import CasesPage from './components/CasesPage';
+import SwabsPage from './components/SwabsPage';
 import NotFoundPage from './components/NotFoundPage';
 
 
@@ -15,6 +16,7 @@ class App extends React.Component {
                 <BrowserRouter basename={process.env.PUBLIC_URL}>
                     <Switch>
                         <Route exact path={process.env.PUBLIC_URL + '/'} component={CasesPage} />
+                        <Route exact path={process.env.PUBLIC_URL + '/swabs'} component={SwabsPage} />
                         <Route component={NotFoundPage} />
                     </Switch>
                 </BrowserRouter>
