@@ -3,7 +3,7 @@ import React from 'react';
 import axios from '../axios';
 
 
-class Case extends React.Component {
+class Swab extends React.Component {
     
     state = {
         first: null,
@@ -11,7 +11,7 @@ class Case extends React.Component {
     }
 
     componentDidMount() {
-        axios.post('covid/hse/case')
+        axios.post('covid/hse/swab')
         .then(response => {
             this.setState(response.data)
         }, error => {
@@ -30,15 +30,15 @@ class Case extends React.Component {
                             <div className='card-body'>
                                 <div className='row text-lg-center'>
                                     <div className='col-lg-6'>
-                                        Cases
+                                        Positive Swabs
                                         <h3>
                                             {first.confirmedcovidcases}
                                         </h3>
                                     </div>
                                     <div className='col-lg-6'>
-                                        Deaths
+                                        Positivity Rate
                                         <h3>
-                                            {first.confirmedcoviddeaths}
+                                            {first.confirmedcoviddeaths}%
                                         </h3>
                                     </div>
                                 </div>
@@ -53,15 +53,15 @@ class Case extends React.Component {
                             <div className='card-body'>
                                 <div className='row text-lg-center'>
                                     <div className='col-lg-6'>
-                                        Cases
+                                        Positive Swabs
                                         <h3>
                                             {last.confirmedcovidcases}
                                         </h3>
                                     </div>
                                     <div className='col-lg-6'>
-                                        Deaths
+                                        Positivity Rate
                                         <h3>
-                                            {last.confirmedcoviddeaths}
+                                            {last.confirmedcoviddeaths}%
                                         </h3>
                                     </div>
                                 </div>
@@ -74,4 +74,4 @@ class Case extends React.Component {
     }
 }
 
-export default Case;
+export default Swab;
