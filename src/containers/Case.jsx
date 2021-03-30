@@ -6,69 +6,71 @@ import axios from '../axios';
 class Case extends React.Component {
     
     state = {
-        first: null,
-        last: null,
+        data: null
     }
 
     componentDidMount() {
         axios.post('covid/hse/case')
         .then(response => {
-            this.setState(response.data)
+            this.setState({data: response.data})
         }, error => {
             console.log(error);
         })
     }
 
     render() {
-        const { first, last } = this.state;
+        const data = this.state.data;
+        console.log(data);
         return (
-            <div className='row mt-3 mb-3'>
-                {first ? (
-                    <div className='col-lg-6'>
-                        <small className='text-muted'>{first.date}</small>
-                        <div className='card'>
-                            <div className='card-body'>
-                                <div className='row text-lg-center'>
-                                    <div className='col-lg-6'>
-                                        Cases
-                                        <h3>
-                                            {first.confirmedcovidcases}
-                                        </h3>
+            <div>
+                {data ? (
+                    <div className='row mt-3 mb-3'>
+                        <div className='col-lg-6'>
+                            <small className='text-muted'>{data.newest_date}</small>
+                            <div className='card'>
+                                <div className='card-body'>
+                                    <div className='row text-lg-center'>
+                                        <div className='col-lg-6'>
+                                            Cases
+                                            <h3>
+                                                {data.confirmedcovidcases}
+                                            </h3>
+                                        </div>
+                                        <div className='col-lg-6'>
+                                            Deaths
+                                            <h3>
+                                                {data.confirmedcoviddeaths}
+                                            </h3>
+                                        </div>
                                     </div>
-                                    <div className='col-lg-6'>
-                                        Deaths
-                                        <h3>
-                                            {first.confirmedcoviddeaths}
-                                        </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-lg-6'>
+                            <small className='text-muted'>{data.oldest_date} to {data.newest_date}</small>
+                            <div className='card'>
+                                <div className='card-body'>
+                                    <div className='row text-lg-center'>
+                                        <div className='col-lg-6'>
+                                            Cases
+                                            <h3>
+                                                {data.totalconfirmedcovidcases}
+                                            </h3>
+                                        </div>
+                                        <div className='col-lg-6'>
+                                            Deaths
+                                            <h3>
+                                                {data.totalcoviddeaths}
+                                            </h3>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                ): null}
-                {last ? (
-                    <div className='col-lg-6'>
-                        <small className='text-muted'>{last.date} to {first.date}</small>
-                        <div className='card'>
-                            <div className='card-body'>
-                                <div className='row text-lg-center'>
-                                    <div className='col-lg-6'>
-                                        Cases
-                                        <h3>
-                                            {last.confirmedcovidcases}
-                                        </h3>
-                                    </div>
-                                    <div className='col-lg-6'>
-                                        Deaths
-                                        <h3>
-                                            {last.confirmedcoviddeaths}
-                                        </h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ): null}
+                ): (
+                    <div>Loading...</div>
+                )}
             </div>
         )
     }
