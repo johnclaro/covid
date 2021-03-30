@@ -10,7 +10,7 @@ class Case extends React.Component {
     }
 
     componentDidMount() {
-        axios.post('covid/hse/case')
+        axios.post('covid/hse/cases/latest')
         .then(response => {
             this.setState({data: response.data})
         }, error => {
@@ -20,13 +20,12 @@ class Case extends React.Component {
 
     render() {
         const data = this.state.data;
-        console.log(data);
         return (
             <div>
                 {data ? (
                     <div className='row mt-3 mb-3'>
                         <div className='col-lg-6'>
-                            <small className='text-muted'>{data.newest_date}</small>
+                            <small className='text-muted'>{data.latest_date}</small>
                             <div className='card'>
                                 <div className='card-body'>
                                     <div className='row text-lg-center'>
@@ -47,7 +46,7 @@ class Case extends React.Component {
                             </div>
                         </div>
                         <div className='col-lg-6'>
-                            <small className='text-muted'>{data.oldest_date} to {data.newest_date}</small>
+                            <small className='text-muted'>{data.oldest_date} to {data.latest_date}</small>
                             <div className='card'>
                                 <div className='card-body'>
                                     <div className='row text-lg-center'>
