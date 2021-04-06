@@ -10,7 +10,7 @@ class Case extends React.Component {
     }
 
     componentDidMount() {
-        axios.post('covid/hse/cases/latest')
+        axios.post('/hse/cases/latest')
         .then(response => {
             this.setState({data: response.data})
         }, error => {
