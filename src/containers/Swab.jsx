@@ -10,7 +10,7 @@ class Swab extends React.Component {
     }
 
     componentDidMount() {
-        axios.post('covid/hse/swabs/latest')
+        axios.post('/hse/swabs/latest')
         .then(response => {
             this.setState({data: response.data})
         }, error => {

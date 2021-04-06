@@ -93,7 +93,7 @@ class Cases extends React.Component {
     }
 
     componentDidMount() {
-        axios.post('covid/hse/cases')
+        axios.post('/hse/cases')
         .then(response => {
             const { data } = response;
             const series = {

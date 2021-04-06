@@ -42,7 +42,7 @@ class Counties extends React.Component {
     }
 
     componentDidMount() {
-        axios.post('covid/hse/counties')
+        axios.post('/hse/counties')
         .then(response => {
             const { data } = response;
             const series = {

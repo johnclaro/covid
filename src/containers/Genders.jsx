@@ -37,7 +37,7 @@ class Genders extends React.Component {
     }
 
     componentDidMount() {
-        axios.post('covid/hse/genders')
+        axios.post('/hse/genders')
         .then(response => {
             const series = {
                 name: 'Gender',

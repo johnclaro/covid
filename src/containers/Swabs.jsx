@@ -95,7 +95,7 @@ class Swabs extends React.Component {
     }
 
     componentDidMount() {
-        axios.post('covid/hse/swabs', this.props)
+        axios.post('/hse/swabs', this.props)
         .then(response => {
             const { positives, cases } = response.data;
             const positiveSeries = {

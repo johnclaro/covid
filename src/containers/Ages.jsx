@@ -37,7 +37,7 @@ class Ages extends React.Component {
     }
 
     componentDidMount() {
-        axios.post('covid/hse/ages')
+        axios.post('/hse/ages')
         .then(response => {
             const series = {
                 name: 'Age',
