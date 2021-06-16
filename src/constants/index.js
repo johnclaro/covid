@@ -81,7 +81,7 @@ export const PLOT_BANDS = [
         }
     }, {
         from: Date.UTC(2020, 11, 24, 0, 0, 0),
-        to: Date.now(),
+        to: Date.UTC(2021, 6, 7, 0, 0, 0),
         color: '#DDD',
         label: {
             text: 'Level 5+',
